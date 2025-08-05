@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLMT Loopify - Infinite Track Loops</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>🎵 TLMT Loopify</h1>
+                <p>Infinite track loops for the band</p>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Login Section -->
+            <div id="login-section" class="section">
+                <div class="login-card">
+                    <h2>Connect to Spotify</h2>
+                    <p>Login with your Spotify Premium account to start looping tracks</p>
+                    <button id="login-btn" class="btn btn-primary">
+                        <span class="spotify-icon">♪</span>
+                        Login with Spotify
+                    </button>
+                </div>
+            </div>
+
+            <!-- App Section -->
+            <div id="app-section" class="section hidden">
+                <div class="user-info">
+                    <img id="user-avatar" src="" alt="User Avatar" class="avatar">
+                    <div class="user-details">
+                        <h3 id="user-name">Welcome!</h3>
+                        <p id="user-email"></p>
+                    </div>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+
+                <div class="track-input-section">
+                    <h2>🔗 Paste Spotify Track URL</h2>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="track-url" 
+                            placeholder="https://open.spotify.com/track/..." 
+                            class="track-input"
+                        >
+                        <button id="load-track-btn" class="btn btn-primary">Load & Loop</button>
+                    </div>
+                    <p class="help-text">
+                        Example: https://open.spotify.com/track/4iV5W9uYEdYUVa79Axb7Rh
+                    </p>
+                </div>
+
+                <div id="player-section" class="player-section hidden">
+                    <div class="now-playing">
+                        <img id="track-image" src="" alt="Track artwork" class="track-artwork">
+                        <div class="track-info">
+                            <h3 id="track-name">Track Name</h3>
+                            <p id="track-artist">Artist Name</p>
+                            <p id="track-album">Album Name</p>
+                        </div>
+                        <div class="loop-indicator">
+                            <span class="loop-icon">🔄</span>
+                            <span>LOOPING</span>
+                        </div>
+                    </div>
+
+                    <div class="player-controls">
+                        <button id="prev-btn" class="control-btn">⏮</button>
+                        <button id="play-pause-btn" class="control-btn play-btn">▶</button>
+                        <button id="next-btn" class="control-btn">⏭</button>
+                        <div class="volume-control">
+                            <span>🔊</span>
+                            <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
+                        </div>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="current-time">0:00</span>
+                            <span id="total-time">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="loop-stats">
+                        <p>🔄 Loops completed: <span id="loop-count">0</span></p>
+                        <p>⏱️ Total playtime: <span id="total-playtime">0:00</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Made with ❤️ by <strong>TLMT Band</strong> | Powered by Spotify Web Playback SDK</p>
+        </footer>
+    </div>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
