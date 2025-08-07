@@ -1,54 +1,52 @@
 # TLMT Loopify 🎵
 
-A Spotify track looper app by **TLMT Band**. Paste any Spotify track URL and loop it forever!
+A totally normal Spotify track looper by **TLMT Band**.  
+Paste a track URL, log in with Spotify Premium, and loop it forever. Totally normal stuff.
 
 ## Features
 
-- 🔗 Paste any Spotify track URL
-- 🔐 Login with your Spotify Premium account
-- 🔄 Automatically loops tracks when they end
-- 🎚️ Volume and playback controls
-- 🎨 Clean, band-themed interface
+- 🔁 Auto-loop any Spotify track  
+- 🎧 Login with your Spotify Premium account  
+- 🎚️ Volume & playback controls  
+- 🖼️ Band-themed UI  
+- 🥚 Hidden easter egg (👕)
 
 ## Setup
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+git clone <this-repo>
+cd tlmt-loopify
+npm install
+```
 
-3. Create a `.env` file with your Spotify app credentials:
-   ```env
-   SPOTIFY_CLIENT_ID=your_client_id_here
-   SPOTIFY_CLIENT_SECRET=your_client_secret_here
-   ```
+Create a `.env` file:
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+```env
+SPOTIFY_CLIENT_ID=your_client_id
+SPOTIFY_CLIENT_SECRET=your_client_secret
+```
 
-5. Open http://localhost:3000 in your browser
+Then start it:
 
-## How to Use
+```bash
+npm run dev
+```
 
-1. Login with your Spotify Premium account
-2. Paste a Spotify track URL (e.g., `https://open.spotify.com/track/4iV5W9uYEdYUVa79Axb7Rh`)
-3. Click "Load & Loop Track"
-4. Enjoy infinite loops! 🔄
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Requirements
 
-- Spotify Premium account (required for Web Playback SDK)
-- Modern web browser
+- Spotify Premium  
+- Modern browser  
 - Internet connection
 
-## Tech Stack
+## Disclaimer 🚨
 
-- Frontend: Vanilla JavaScript, HTML5, CSS3
-- Backend: Node.js, Express
-- API: Spotify Web API & Web Playback SDK
+This project is part of a satirical skit for our music video **Oliver** –  
+🎧 [Listen to it here](https://hyperfollow.com/tlmt/oliver) and loop it manually, please. 😅
+
+🎁 **Find the easter egg in the code and win a TLMT T-shirt.**  
+No bots, no cheating. Just rock.
 
 ---
 
