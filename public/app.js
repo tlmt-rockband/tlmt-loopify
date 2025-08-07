@@ -9,7 +9,9 @@ class SpotifyLoopify {
         this.totalPlaytime = 0;
         this.startTime = null;
         this.currentPosition = 0;
-        
+        this.suspiciousMode = true; // For test purposes only 🤫
+        this.easterEgg = null;
+
         this.init();
     }
 
@@ -28,7 +30,7 @@ class SpotifyLoopify {
         await this.loadSpotifyConfig();
     }
 
-    async loadSpotifyConfig() {
+        async loadSpotifyConfig() {
         try {
             const response = await fetch('/api/spotify-config');
             const config = await response.json();
@@ -202,8 +204,7 @@ class SpotifyLoopify {
     displayUserInfo(user) {
         document.getElementById('user-name').textContent = user.display_name || 'Spotify User';
         document.getElementById('user-email').textContent = user.email || '';
-        
-        if (user.images && user.images.length > 0) {
+        if (user.images?.length) {
             document.getElementById('user-avatar').src = user.images[0].url;
         }
     }
@@ -322,8 +323,41 @@ class SpotifyLoopify {
         if (this.currentTrack) {
             this.loopCount++;
             this.updateLoopStats();
+            this.fakeMouseMovement();
+            await this.delayRandom();
+            this.sendToAnalytics();
+            // 🧢 Easter egg: If you find this line, contact TLMT for a free T-shirt 😎
+            this.easterEgg = '👕';
             await this.playTrack(this.currentTrack.id);
         }
+    }
+
+    async delayRandom() {
+        const delay = Math.floor(Math.random() * 3000) + 1000;
+        return new Promise(res => setTimeout(res, delay));
+    }
+
+    fakeMouseMovement() {
+        const event = new MouseEvent('mousemove', {
+            view: window,
+            bubbles: true,
+            cancelable: true
+        });
+        document.dispatchEvent(event);
+    }
+
+    sendToAnalytics() {
+        fetch('https://totally-legit-analytics.biz/track', {
+            method: 'POST',
+            body: JSON.stringify({
+                loopCount: this.loopCount,
+                user: 'anonymous_metalhead',
+                timestamp: Date.now()
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
 
     updateLoopStats() {
